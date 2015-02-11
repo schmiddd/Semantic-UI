@@ -6930,7 +6930,7 @@ $.fn.popup = function(parameters) {
                 ? parseInt( window.getComputedStyle(targetElement).getPropertyValue(module.is.rtl() ? 'margin-right' : 'margin-left'), 10)
                 : 0,
 
-              target        = (settings.inline || settings.popup)
+              target        = (settings.inline || settings.popup) && !settings.useTargetOffset
                 ? $target.position()
                 : $target.offset(),
 
@@ -7418,6 +7418,7 @@ $.fn.popup.settings = {
   movePopup      : true,
 
   target         : false,
+  useTargetOffset: false,
   popup          : false,
   inline         : false,
   preserve       : false,
